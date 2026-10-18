@@ -1,0 +1,11 @@
+Objektnummer;Gebäude;Art;Bezeichnung;Einbau;Energieträger;Letzte Prüfung;Großanlage
+W001;Vorderhaus;Heizung;Gas-Brennwertkessel;15.09.2026;Erdgas;;nein
+W001;Vorderhaus;Trinkwasser;Warmwasserspeicher 750 l;15.09.2026;;20.11.2023;ja
+W001;Vorderhaus;Rauchwarnmelder;Rauchwarnmelder (14 Stück);01.01.2017;;05.11.2025;
+W001;Vorderhaus;Aufzug;Personenaufzug;01.06.1998;;12.03.2026;
+M001;Haus;Heizung;Fernwärme-Übergabestation;01.10.2010;Fernwärme;;
+M001;Haus;Trinkwasser;Zentrale Warmwasserbereitung 500 l;01.10.2010;;10.03.2025;ja
+M001;Haus;Rauchwarnmelder;Rauchwarnmelder (24 Stück);01.01.2016;;28.10.2025;
+S001;Lindenstraße 12;Rauchwarnmelder;Rauchwarnmelder Wohnung;01.01.2017;;05.11.2025;
+G001;Geschäftshaus;Heizung;Gas-Niedertemperaturkessel;01.11.2001;Gas;;
+G001;Geschäftshaus;Trinkwasser;Dezentrale Durchlauferhitzer;01.11.2001;;;nein

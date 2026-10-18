@@ -1,0 +1,5 @@
+Objektnummer;Gebäude;Straße;Hausnummer;PLZ;Ort;Baujahr;Nutzung
+W001;Vorderhaus;Lindenstraße;12;04107;Leipzig;1998;Wohnen
+M001;Haus;Gohliser Straße;8;04155;Leipzig;1906;Wohnen
+S001;Lindenstraße 12;Lindenstraße;12;04107;Leipzig;1998;Wohnen
+G001;Geschäftshaus;Karl-Liebknecht-Straße;40;04275;Leipzig;1912;Gewerbe

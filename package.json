@@ -21,13 +21,15 @@
     "test:e2e": "pnpm --filter @hv/web test:e2e",
     "build": "pnpm -r build",
     "licenses": "node scripts/check-licenses.mjs",
-    "traceability": "node scripts/check-traceability.mjs"
+    "traceability": "node scripts/check-traceability.mjs",
+    "demo:xlsx": "tsx scripts/build-demo-xlsx.ts"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@hv/db": "workspace:*",
     "@types/node": "^22.20.5",
     "eslint": "^10.13.0",
+    "exceljs": "^4.4.0",
     "fast-check": "^4.10.2",
     "globals": "^17.13.0",
     "tsx": "^4.23.15",

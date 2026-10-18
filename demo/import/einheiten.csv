@@ -1,0 +1,23 @@
+Objektnummer;Einheit;Gebäude;Typ;Etage;Lage;Wohnfläche;Nutzfläche;Heizfläche;MEA;Personen;Gültig ab;WEG-Objektnummer;WEG-Einheit
+W001;WE 01;Vorderhaus;Wohnung;EG;links;68,40;;68,40;140;2;01.01.2020;;
+W001;WE 02;Vorderhaus;Wohnung;EG;rechts;74,15;;74,15;160;3;01.01.2020;;
+W001;WE 03;Vorderhaus;Wohnung;1. OG;links;71,90;;71,90;150;2;01.01.2020;;
+W001;WE 04;Vorderhaus;Wohnung;1. OG;rechts;79,30;;79,30;170;4;01.01.2020;;
+W001;WE 05;Vorderhaus;Wohnung;2. OG;links;72,60;;72,60;155;1;01.01.2020;;
+W001;WE 06;Vorderhaus;Wohnung;2. OG;rechts;76,85;;76,85;165;2;01.01.2020;;
+W001;TG 01;Vorderhaus;Stellplatz;UG;;;12,50;;30;;01.01.2020;;
+W001;TG 02;Vorderhaus;Stellplatz;UG;;;12,50;;30;;01.01.2020;;
+M001;WE 01;Haus;Wohnung;EG;links;52,30;;52,30;;1;01.01.2024;;
+M001;WE 02;Haus;Wohnung;EG;rechts;61,75;;61,75;;2;01.01.2024;;
+M001;WE 03;Haus;Wohnung;1. OG;links;52,30;;52,30;;2;01.01.2024;;
+M001;WE 04;Haus;Wohnung;1. OG;rechts;61,75;;61,75;;0;01.01.2024;;
+M001;WE 05;Haus;Wohnung;2. OG;links;52,30;;52,30;;1;01.01.2024;;
+M001;WE 06;Haus;Wohnung;2. OG;rechts;61,75;;61,75;;3;01.01.2024;;
+M001;WE 07;Haus;Wohnung;DG;links;45,10;;45,10;;1;01.01.2024;;
+M001;WE 08;Haus;Wohnung;DG;rechts;48,90;;48,90;;2;01.01.2024;;
+M001;K 01;Haus;Nebenfläche;UG;Keller;;6,20;;;;01.01.2024;;
+S001;SEV WE 02;Lindenstraße 12;Wohnung;EG;rechts;74,15;;74,15;160;3;01.01.2020;W001;WE 02
+S001;SEV TG 01;Lindenstraße 12;Stellplatz;UG;;;12,50;;30;;01.01.2020;W001;TG 01
+G001;GE 01;Geschäftshaus;Gewerbe;EG;Laden;;142,80;142,80;;;01.07.2023;;
+G001;GE 02;Geschäftshaus;Gewerbe;1. OG;Büro;;186,40;186,40;;;01.07.2023;;
+G001;GE 03;Geschäftshaus;Gewerbe;2. OG;Praxis;;171,25;171,25;;;01.07.2023;;

@@ -1,0 +1,36 @@
+Objektnummer;Einheit;Art;Zählernummer;Ort;Fernablesbar;Interoperabel;Eichung gültig bis;Eichjahr
+W001;WE 01;WMZ;WMZ-L12-01;Wohnungsflur;ja;ja;;2022
+W001;WE 01;Warmwasser;WWZ-L12-01;Bad;ja;nein;;2021
+W001;WE 02;WMZ;WMZ-L12-02;Wohnungsflur;ja;ja;;2022
+W001;WE 02;Warmwasser;WWZ-L12-02;Bad;ja;nein;;2021
+W001;WE 03;WMZ;WMZ-L12-03;Wohnungsflur;ja;nein;;2022
+W001;WE 03;Warmwasser;WWZ-L12-03;Bad;ja;nein;;2021
+W001;WE 04;WMZ;WMZ-L12-04;Wohnungsflur;ja;nein;;2022
+W001;WE 04;Warmwasser;WWZ-L12-04;Bad;ja;nein;;2021
+W001;WE 05;WMZ;WMZ-L12-05;Wohnungsflur;nein;nein;;2022
+W001;WE 05;Warmwasser;WWZ-L12-05;Bad;nein;nein;;2021
+W001;WE 06;WMZ;WMZ-L12-06;Wohnungsflur;nein;nein;;2022
+W001;WE 06;Warmwasser;WWZ-L12-06;Bad;nein;nein;;2021
+M001;WE 01;HKV;HKV-G8-01-1;Wohnzimmer;nein;nein;;
+M001;WE 01;Kaltwasser;KWZ-G8-01;Bad;nein;nein;;2020
+M001;WE 02;HKV;HKV-G8-02-1;Wohnzimmer;nein;nein;;
+M001;WE 02;Kaltwasser;KWZ-G8-02;Bad;nein;nein;;2020
+M001;WE 03;HKV;HKV-G8-03-1;Wohnzimmer;nein;nein;;
+M001;WE 03;Kaltwasser;KWZ-G8-03;Bad;nein;nein;;2020
+M001;WE 04;HKV;HKV-G8-04-1;Wohnzimmer;nein;nein;;
+M001;WE 04;Kaltwasser;KWZ-G8-04;Bad;nein;nein;;2020
+M001;WE 05;HKV;HKV-G8-05-1;Wohnzimmer;nein;nein;;
+M001;WE 05;Kaltwasser;KWZ-G8-05;Bad;nein;nein;;2020
+M001;WE 06;HKV;HKV-G8-06-1;Wohnzimmer;nein;nein;;
+M001;WE 06;Kaltwasser;KWZ-G8-06;Bad;nein;nein;;2020
+M001;WE 07;HKV;HKV-G8-07-1;Wohnzimmer;nein;nein;;
+M001;WE 07;Kaltwasser;KWZ-G8-07;Bad;nein;nein;;2020
+M001;WE 08;HKV;HKV-G8-08-1;Wohnzimmer;nein;nein;;
+M001;WE 08;Kaltwasser;KWZ-G8-08;Bad;nein;nein;;2020
+M001;;Wärme;WMZ-G8-HAUPT;Hausanschlussraum;ja;ja;31.12.2027;
+G001;GE 01;Strom;STR-K40-1;Zählerschrank;ja;nein;;2019
+G001;GE 01;Wärme;WMZ-K40-1;Verteiler;nein;nein;;2021
+G001;GE 02;Strom;STR-K40-2;Zählerschrank;ja;nein;;2019
+G001;GE 02;Wärme;WMZ-K40-2;Verteiler;nein;nein;;2021
+G001;GE 03;Strom;STR-K40-3;Zählerschrank;ja;nein;;2019
+G001;GE 03;Wärme;WMZ-K40-3;Verteiler;nein;nein;;2021

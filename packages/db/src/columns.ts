@@ -65,4 +65,5 @@ export const TABLE_COLUMNS: { [T in keyof Database]: readonly string[] } = {
   import_jobs: columns<Database["import_jobs"]>()(
     "id", "tenant_id", "created_by", "status", "source_files", "mapping", "report", "data", "summary", "created_at", "updated_at", "committed_at",
   ),
+  external_keys: columns<Database["external_keys"]>()("id", "tenant_id", "source", "entity_type", "external_key", "entity_id", "created_at"),
 };

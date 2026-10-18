@@ -1,0 +1,26 @@
+Personennummer;Art;Anrede;Titel;Vorname;Nachname;Firma;Geburtsdatum;E-Mail;Telefon;Mobil;Straße;Hausnummer;PLZ;Ort;Land;Kommunikation;IBAN
+P001;natürlich;Frau;;Sabine;Hoffmann;;14.03.1968;sabine.hoffmann@example.org;0341 1110001;;Lindenstraße;12;04107;Leipzig;DE;E-Mail;DE29860500000001001001
+P002;natürlich;Herr;;Thomas;Weber;;02.11.1959;thomas.weber@example.org;0341 1110002;;Am Rosental;3;04105;Leipzig;DE;E-Mail;DE02860500000001001002
+P003;natürlich;Frau;Dr.;Claudia;Neumann;;27.07.1975;c.neumann@example.org;;;Lindenstraße;12;04107;Leipzig;DE;Portal;DE72860500000001001003
+P004;natürlich;Herr;;Jens;Neumann;;05.01.1973;j.neumann@example.org;;;Lindenstraße;12;04107;Leipzig;DE;Portal;
+P005;natürlich;Herr;;Michael;Schulz;;19.09.1981;m.schulz@example.org;0341 1110005;;Lindenstraße;12;04107;Leipzig;DE;E-Mail;DE18860500000001001005
+P006;natürlich;Frau;;Ingrid;Fischer;;30.04.1948;;0341 1110006;;Waldstraße;44;04105;Leipzig;DE;Brief;DE88860500000001001006
+P007;natürlich;Herr;;Lukas;Becker;;11.12.1990;lukas.becker@example.org;;;Lindenstraße;12;04107;Leipzig;DE;E-Mail;DE61860500000001001007
+P008;natürlich;Frau;;Monika;Wagner;;08.08.1962;monika.wagner@example.org;0341 1110008;;Lindenstraße;12;04107;Leipzig;DE;E-Mail;DE34860500000001001008
+P009;natürlich;Frau;;Lea;Krüger;;21.02.1994;lea.krueger@example.org;;;Lindenstraße;12;04107;Leipzig;DE;Portal;DE07860500000001001009
+P010;juristisch;;;;;Gohlis Wohnen GbR;;kontakt@gohlis-wohnen.example;0341 2220000;;Menckestraße;20;04155;Leipzig;DE;E-Mail;DE69860500000002002000
+P011;natürlich;Herr;;Paul;Richter;;12.05.1985;paul.richter@example.org;;;Gohliser Straße;8;04155;Leipzig;DE;Portal;DE82860500000003003000
+P012;natürlich;Frau;;Anna;Klein;;03.03.1991;anna.klein@example.org;;;Gohliser Straße;8;04155;Leipzig;DE;E-Mail;DE55860500000003003001
+P013;natürlich;Herr;;Felix;Wolf;;30.10.1979;felix.wolf@example.org;;;Gohliser Straße;8;04155;Leipzig;DE;E-Mail;DE28860500000003003002
+P014;natürlich;Frau;;Marie;Schröder;;17.06.1988;marie.schroeder@example.org;;;Gohliser Straße;8;04155;Leipzig;DE;Portal;DE98860500000003003003
+P015;natürlich;Herr;;Jonas;Neumann;;25.01.1996;jonas.neumann@example.org;;;Gohliser Straße;8;04155;Leipzig;DE;E-Mail;DE71860500000003003004
+P016;natürlich;Frau;;Emma;Schwarz;;08.12.1983;emma.schwarz@example.org;;;Gohliser Straße;8;04155;Leipzig;DE;E-Mail;DE44860500000003003005
+P017;natürlich;Herr;;Ben;Zimmermann;;14.07.1999;ben.zimmermann@example.org;;;Gohliser Straße;8;04155;Leipzig;DE;Portal;DE17860500000003003006
+P018;natürlich;Frau;;Sophie;Braun;;22.09.1987;sophie.braun@example.org;;;Gohliser Straße;8;04155;Leipzig;DE;E-Mail;DE87860500000003003007
+P019;natürlich;Herr;;Elias;Hartmann;;09.04.1992;elias.hartmann@example.org;;;Gohliser Straße;8;04155;Leipzig;DE;E-Mail;DE60860500000003003008
+P020;juristisch;;;;;Gewerbepark Leipzig GmbH & Co. KG;;verwaltung@gewerbepark.example;0341 3330000;;Prager Straße;118;04317;Leipzig;DE;E-Mail;DE95860500000004004000
+P021;juristisch;;;;;Bäckerei Krume GmbH;;laden@krume.example;0341 3330001;;Karl-Liebknecht-Straße;40;04275;Leipzig;DE;E-Mail;DE68860500000004004001
+P022;juristisch;;;;;Steuerkanzlei Zahl & Partner mbB;;kanzlei@zahl.example;0341 3330002;;Karl-Liebknecht-Straße;40;04275;Leipzig;DE;E-Mail;DE41860500000004004002
+P023;juristisch;;;;;Physiopraxis Bewegung;;info@bewegung.example;0341 3330003;;Karl-Liebknecht-Straße;40;04275;Leipzig;DE;E-Mail;DE14860500000004004003
+P024;juristisch;;;;;Haustechnik Sachsen GmbH;;service@haustechnik-sachsen.example;0341 4440000;;Zschochersche Straße;61;04229;Leipzig;DE;E-Mail;
+P025;juristisch;;;;;Rauchmelder-Service Mitteldeutschland GmbH;;termine@rwm-md.example;0341 4440001;;Torgauer Straße;200;04347;Leipzig;DE;E-Mail;

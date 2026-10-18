@@ -287,6 +287,16 @@ export interface ImportJobsTable {
   committed_at: Timestamp | null;
 }
 
+export interface ExternalKeysTable {
+  id: Generated<string>;
+  tenant_id: string;
+  source: string;
+  entity_type: "property" | "building" | "unit" | "person" | "technical_asset" | "meter";
+  external_key: string;
+  entity_id: string;
+  created_at: Generated<Date>;
+}
+
 export interface Database {
   tenants: TenantsTable;
   users: UsersTable;
@@ -306,6 +316,7 @@ export interface Database {
   legal_rules: LegalRulesTable;
   legal_rule_versions: LegalRuleVersionsTable;
   import_jobs: ImportJobsTable;
+  external_keys: ExternalKeysTable;
 }
 
 export type Row<T extends keyof Database> = Selectable<Database[T]>;

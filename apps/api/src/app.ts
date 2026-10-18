@@ -10,6 +10,7 @@ import { registerErrorHandling } from "./plugins/errors";
 import { auditRoutes } from "./routes/audit";
 import { deadlineRoutes } from "./routes/deadlines";
 import { devRoutes } from "./routes/dev";
+import { importRoutes } from "./routes/imports";
 import { personRoutes } from "./routes/persons";
 import { propertyRoutes } from "./routes/properties";
 import { ruleRoutes } from "./routes/rules";
@@ -72,6 +73,7 @@ export async function buildApp(options: BuildAppOptions): Promise<FastifyInstanc
       await v1.register(ruleRoutes);
       await v1.register(deadlineRoutes);
       await v1.register(auditRoutes);
+      await v1.register(importRoutes);
       for (const plugin of options.plugins ?? []) await v1.register(plugin);
     },
     { prefix: "/v1" },

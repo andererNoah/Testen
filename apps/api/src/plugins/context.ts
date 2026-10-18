@@ -1,6 +1,6 @@
 import type { FastifyInstance, FastifyRequest } from "fastify";
 import { loadPrincipal } from "@hv/access";
-import { withTenant, type Db } from "@hv/db";
+import { withTenant, type ActorKind, type Db } from "@hv/db";
 import type { IsoDate } from "@hv/deadlines";
 import type { Ctx } from "@hv/masterdata";
 import { AuthError, type AuthIdentity, type Authenticator } from "../auth";
@@ -37,11 +37,12 @@ export function registerAuth(app: FastifyInstance) {
 }
 
 /** Runs `fn` in a tenant transaction with the caller's principal (one transaction per request). */
-export function runInTenant<T>(request: FastifyRequest, fn: (ctx: Ctx) => Promise<T>): Promise<T> {
+export function runInTenant<T>(request: FastifyRequest, fn: (ctx: Ctx) => Promise<T>, options: { actorKind?: ActorKind } = {}): Promise<T> {
   const identity = request.identity;
   if (!identity) throw new AuthError("Nicht angemeldet");
   const { appDb, today } = request.server.deps;
-  return withTenant(appDb, { tenantId: identity.tenantId, userId: identity.userId, requestId: request.id }, async (trx) =>
+  const context = { tenantId: identity.tenantId, userId: identity.userId, requestId: request.id, actorKind: options.actorKind ?? "user" };
+  return withTenant(appDb, context, async (trx) =>
     fn({ trx, principal: await loadPrincipal(trx, identity.userId), today: today(), requestId: request.id }),
   );
 }

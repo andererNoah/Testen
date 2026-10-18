@@ -1,0 +1,5 @@
+Objektnummer;Art;Name;Straße;Hausnummer;PLZ;Ort;Bundesland;MEA-Nenner;Stimmrecht;Abrechnungsbeginn (Monat)
+W001;WEG;WEG Lindenstraße 12;Lindenstraße;12;04107;Leipzig;Sachsen;1000;Kopf;1
+M001;Miete;Mietshaus Gohliser Straße 8;Gohliser Straße;8;04155;Leipzig;Sachsen;;;1
+S001;SEV;SEV-Bestand Familie Weber;Lindenstraße;12;04107;Leipzig;Sachsen;1000;;1
+G001;Miete;Geschäftshaus Karl-Liebknecht-Straße 40;Karl-Liebknecht-Straße;40;04275;Leipzig;Sachsen;;;7
