@@ -44,6 +44,8 @@ export async function startLocalCluster(options: { dataDir?: string; port?: numb
   const binary = (name: string) => path.join(bin, name);
 
   if (!existsSync(path.join(dataDir, "PG_VERSION"))) {
+    // Only the data directory itself is private; parents must stay traversable for `postgres`.
+    await mkdir(path.dirname(dataDir), { recursive: true });
     await mkdir(dataDir, { recursive: true, mode: 0o700 });
     if (isRoot()) {
       const { stdout } = await execFile("id", ["-u", "postgres"]);
