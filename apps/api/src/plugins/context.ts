@@ -2,6 +2,7 @@ import type { FastifyInstance, FastifyRequest } from "fastify";
 import { loadPrincipal } from "@hv/access";
 import { withTenant, type ActorKind, type Db } from "@hv/db";
 import type { IsoDate } from "@hv/deadlines";
+import type { DocumentStorage } from "@hv/documents";
 import type { Ctx } from "@hv/masterdata";
 import { AuthError, type AuthIdentity, type Authenticator } from "../auth";
 
@@ -22,6 +23,7 @@ export interface AppDeps {
   appDb: Db;
   ownerDb: Db;
   auth: Authenticator;
+  storage: DocumentStorage;
   /** Today's civil date in Germany; injectable for tests. */
   today: () => IsoDate;
 }

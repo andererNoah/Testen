@@ -1,4 +1,6 @@
 import { createDb, createPool } from "@hv/db";
+import { FileSystemStorage } from "@hv/documents";
+import path from "node:path";
 import { today } from "@hv/deadlines";
 import { buildApp } from "./app";
 import { createAuthenticator } from "./auth";
@@ -10,7 +12,13 @@ const appDb = createDb(createPool(config.DATABASE_URL, { applicationName: "hv-ap
 const ownerDb = createDb(createPool(config.DATABASE_OWNER_URL, { max: 2, applicationName: "hv-api-owner" }));
 
 const app = await buildApp({
-  deps: { appDb, ownerDb, auth: createAuthenticator(config), today: () => today(config.TIME_ZONE) },
+  deps: {
+    appDb,
+    ownerDb,
+    auth: createAuthenticator(config),
+    storage: new FileSystemStorage(path.resolve(import.meta.dirname, "../../..", config.STORAGE_DIR)),
+    today: () => today(config.TIME_ZONE),
+  },
   logger: { level: config.LOG_LEVEL },
 });
 

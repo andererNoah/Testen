@@ -297,6 +297,48 @@ export interface ExternalKeysTable {
   created_at: Generated<Date>;
 }
 
+export type DocumentCategory = "contract" | "protocol" | "invoice" | "statement" | "correspondence" | "technical" | "plan" | "certificate" | "photo" | "other";
+export type DocumentEntity = "property" | "building" | "unit" | "person" | "technical_asset" | "meter";
+
+export interface DocumentsTable {
+  id: Generated<string>;
+  tenant_id: string;
+  title: string;
+  category: DocumentCategory;
+  document_date: DateString | null;
+  current_version: ColumnType<number, number | undefined, number>;
+  retention_until: DateString | null;
+  retention_rule: string | null;
+  created_by: string;
+  created_at: Generated<Date>;
+  updated_at: Generated<Date>;
+  deleted_at: Timestamp | null;
+}
+
+export interface DocumentVersionsTable {
+  id: Generated<string>;
+  tenant_id: string;
+  document_id: string;
+  version: number;
+  storage_key: string;
+  filename: string;
+  mime_type: string;
+  size_bytes: number;
+  sha256: string;
+  created_by: string;
+  created_at: Generated<Date>;
+}
+
+export interface DocumentLinksTable {
+  id: Generated<string>;
+  tenant_id: string;
+  document_id: string;
+  entity_type: DocumentEntity;
+  entity_id: string;
+  property_id: string | null;
+  created_at: Generated<Date>;
+}
+
 export interface Database {
   tenants: TenantsTable;
   users: UsersTable;
@@ -317,6 +359,9 @@ export interface Database {
   legal_rule_versions: LegalRuleVersionsTable;
   import_jobs: ImportJobsTable;
   external_keys: ExternalKeysTable;
+  documents: DocumentsTable;
+  document_versions: DocumentVersionsTable;
+  document_links: DocumentLinksTable;
 }
 
 export type Row<T extends keyof Database> = Selectable<Database[T]>;

@@ -68,6 +68,9 @@ importers:
       '@hv/deadlines':
         specifier: workspace:*
         version: link:../../packages/deadlines
+      '@hv/documents':
+        specifier: workspace:*
+        version: link:../../modules/documents
       '@hv/importer':
         specifier: workspace:*
         version: link:../../modules/importer
@@ -98,6 +101,27 @@ importers:
       '@hv/db':
         specifier: workspace:*
         version: link:../../packages/db
+
+  modules/documents:
+    dependencies:
+      '@hv/access':
+        specifier: workspace:*
+        version: link:../access
+      '@hv/core':
+        specifier: workspace:*
+        version: link:../../packages/core
+      '@hv/db':
+        specifier: workspace:*
+        version: link:../../packages/db
+      '@hv/masterdata':
+        specifier: workspace:*
+        version: link:../masterdata
+      '@hv/rules':
+        specifier: workspace:*
+        version: link:../../packages/rules
+      zod:
+        specifier: ^4.6.7
+        version: 4.6.7
 
   modules/importer:
     dependencies:

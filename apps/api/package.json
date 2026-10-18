@@ -21,6 +21,7 @@
     "@hv/core": "workspace:*",
     "@hv/db": "workspace:*",
     "@hv/deadlines": "workspace:*",
+    "@hv/documents": "workspace:*",
     "@hv/importer": "workspace:*",
     "@hv/masterdata": "workspace:*",
     "@hv/rules": "workspace:*",

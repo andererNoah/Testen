@@ -66,4 +66,12 @@ export const TABLE_COLUMNS: { [T in keyof Database]: readonly string[] } = {
     "id", "tenant_id", "created_by", "status", "source_files", "mapping", "report", "data", "summary", "created_at", "updated_at", "committed_at",
   ),
   external_keys: columns<Database["external_keys"]>()("id", "tenant_id", "source", "entity_type", "external_key", "entity_id", "created_at"),
+  documents: columns<Database["documents"]>()(
+    "id", "tenant_id", "title", "category", "document_date", "current_version", "retention_until", "retention_rule", "created_by",
+    "created_at", "updated_at", "deleted_at",
+  ),
+  document_versions: columns<Database["document_versions"]>()(
+    "id", "tenant_id", "document_id", "version", "storage_key", "filename", "mime_type", "size_bytes", "sha256", "created_by", "created_at",
+  ),
+  document_links: columns<Database["document_links"]>()("id", "tenant_id", "document_id", "entity_type", "entity_id", "property_id", "created_at"),
 };
