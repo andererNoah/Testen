@@ -1,5 +1,6 @@
+import { ForbiddenError as DomainForbiddenError } from "@hv/core";
 import type { ScopeType, Tx } from "@hv/db";
-import { isPermission, type Permission } from "./permissions";
+import { PERMISSIONS, isPermission, type Permission } from "./permissions";
 
 export interface Assignment {
   roleKey: string;
@@ -25,18 +26,21 @@ export interface Target {
   unitId?: string | null;
 }
 
-export class ForbiddenError extends Error {
+export class ForbiddenError extends DomainForbiddenError {
   override name = "ForbiddenError";
   constructor(
     readonly permission: Permission,
     readonly target?: Target,
   ) {
-    super(`Keine Berechtigung „${permission}“ für diesen Bereich.`);
+    super(`Dafür fehlt Ihnen die Berechtigung „${PERMISSIONS[permission]}“ in diesem Bereich.`, { permission, target });
   }
 }
 
-export class UnknownUserError extends Error {
+export class UnknownUserError extends DomainForbiddenError {
   override name = "UnknownUserError";
+  constructor() {
+    super("Ihr Zugang ist unbekannt oder gesperrt. Bitte wenden Sie sich an Ihre Verwaltung.");
+  }
 }
 
 /**
@@ -73,7 +77,7 @@ export async function loadPrincipal(trx: Tx, userId: string): Promise<Principal>
     .select(["id", "tenant_id", "email", "display_name", "person_id", "status"])
     .where("id", "=", userId)
     .executeTakeFirst();
-  if (!user || user.status !== "active") throw new UnknownUserError("Benutzer unbekannt oder gesperrt");
+  if (!user || user.status !== "active") throw new UnknownUserError();
 
   const rows = await trx
     .selectFrom("role_assignments as ra")

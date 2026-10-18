@@ -22,7 +22,8 @@ export const TABLE_COLUMNS: { [T in keyof Database]: readonly string[] } = {
     "voting_principle", "settlement_period_start_month", "custom_fields", "archived_at", "created_at", "updated_at",
   ),
   buildings: columns<Database["buildings"]>()(
-    "id", "tenant_id", "property_id", "name", "street", "house_number", "postal_code", "city", "year_built", "usage", "created_at", "updated_at",
+    "id", "tenant_id", "property_id", "name", "street", "house_number", "postal_code", "city", "year_built", "usage", "custom_fields",
+    "created_at", "updated_at",
   ),
   units: columns<Database["units"]>()(
     "id", "tenant_id", "property_id", "building_id", "number", "type", "floor", "position", "description", "linked_unit_id",

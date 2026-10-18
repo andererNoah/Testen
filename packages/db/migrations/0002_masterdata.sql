@@ -35,6 +35,7 @@ CREATE TABLE buildings (
   city          text,
   year_built    smallint CHECK (year_built IS NULL OR year_built BETWEEN 1000 AND 2100),
   usage         text NOT NULL DEFAULT 'residential' CHECK (usage IN ('residential', 'non_residential', 'mixed')),
+  custom_fields jsonb NOT NULL DEFAULT '{}'::jsonb,
   created_at    timestamptz NOT NULL DEFAULT now(),
   updated_at    timestamptz NOT NULL DEFAULT now(),
   FOREIGN KEY (tenant_id, property_id) REFERENCES properties (tenant_id, id),
@@ -82,7 +83,8 @@ CREATE TABLE unit_measures (
   FOREIGN KEY (tenant_id, property_id, unit_id) REFERENCES units (tenant_id, property_id, id),
   CHECK (valid_to IS NULL OR valid_to > valid_from),
   CHECK (superseded_at IS NULL OR superseded_at >= recorded_at),
-  EXCLUDE USING gist (unit_id WITH =, measure WITH =, daterange(valid_from, valid_to, '[)') WITH &&) WHERE (superseded_at IS NULL)
+  CONSTRAINT unit_measures_no_overlap
+    EXCLUDE USING gist (unit_id WITH =, measure WITH =, daterange(valid_from, valid_to, '[)') WITH &&) WHERE (superseded_at IS NULL)
 );
 CREATE INDEX unit_measures_lookup_idx ON unit_measures (unit_id, measure, valid_from);
 

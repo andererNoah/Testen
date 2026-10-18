@@ -1,0 +1,17 @@
+{
+  "name": "@hv/masterdata",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": { ".": "./src/index.ts" },
+  "scripts": { "typecheck": "tsc -p ." },
+  "dependencies": {
+    "@hv/access": "workspace:*",
+    "@hv/core": "workspace:*",
+    "@hv/db": "workspace:*",
+    "@hv/deadlines": "workspace:*",
+    "@hv/money": "workspace:*",
+    "@hv/rules": "workspace:*",
+    "zod": "^4.6.7"
+  }
+}

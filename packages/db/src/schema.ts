@@ -96,6 +96,7 @@ export interface BuildingsTable {
   city: string | null;
   year_built: number | null;
   usage: ColumnType<"residential" | "non_residential" | "mixed", "residential" | "non_residential" | "mixed" | undefined>;
+  custom_fields: Json;
   created_at: Generated<Date>;
   updated_at: Generated<Date>;
 }

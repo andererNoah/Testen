@@ -38,9 +38,38 @@ importers:
 
   modules/access:
     dependencies:
+      '@hv/core':
+        specifier: workspace:*
+        version: link:../../packages/core
       '@hv/db':
         specifier: workspace:*
         version: link:../../packages/db
+
+  modules/masterdata:
+    dependencies:
+      '@hv/access':
+        specifier: workspace:*
+        version: link:../access
+      '@hv/core':
+        specifier: workspace:*
+        version: link:../../packages/core
+      '@hv/db':
+        specifier: workspace:*
+        version: link:../../packages/db
+      '@hv/deadlines':
+        specifier: workspace:*
+        version: link:../../packages/deadlines
+      '@hv/money':
+        specifier: workspace:*
+        version: link:../../packages/money
+      '@hv/rules':
+        specifier: workspace:*
+        version: link:../../packages/rules
+      zod:
+        specifier: ^4.6.7
+        version: 4.6.7
+
+  packages/core: {}
 
   packages/db:
     dependencies:
