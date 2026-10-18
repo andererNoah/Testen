@@ -49,7 +49,7 @@ Ablauf für die Vorführung:
 | AB-10 | Barrierefreiheit nur automatisch geprüft (axe) | Manueller Test mit Screenreader und Tastatur steht aus | vor Pilot |
 | AB-11 | Dublettenprüfung nur innerhalb der sichtbaren Personen | Datenschutz: Objektbetreuer sehen keine fremden Personen | Entscheidung vor Pilot |
 | AB-12 | Mietpreisbremse ohne Gebietsliste | Landesverordnungen müssen als Daten gepflegt werden | Phase 1 |
-| AB-13 | Code-Splitting der Web-App fehlt (ein Bundle ~600 kB) | Für Phase 0 unkritisch | Phase 1 |
+| AB-13 | Code-Splitting der Web-App fehlt (ein Bundle, 772 kB bzw. 227 kB gzip) | Für Phase 0 unkritisch | Phase 1 |
 
 ## Nächste Schritte (Phase 1 „Mietverwaltung MVP“)
 
