@@ -20,7 +20,9 @@ const STATUS_ORDER = { overdue: 0, critical: 1, warn: 2, ok: 3 } as const;
  * Derived on the fly from master data and the rule catalog; nothing is stored, so a rule
  * update takes effect immediately.
  */
-export async function listDeadlines(ctx: Ctx, filter: { propertyId?: string } = {}): Promise<EvaluatedDeadline[]> {
+export type PropertyDeadline = EvaluatedDeadline & { propertyLabel: string };
+
+export async function listDeadlines(ctx: Ctx, filter: { propertyId?: string } = {}): Promise<PropertyDeadline[]> {
   requirePermission(ctx.principal, "deadlines.read", filter.propertyId ? { propertyId: filter.propertyId } : undefined);
   let pq = ctx.trx.selectFrom("properties").selectAll().where("archived_at", "is", null);
   if (filter.propertyId) pq = pq.where("id", "=", filter.propertyId);
@@ -50,7 +52,7 @@ export async function listDeadlines(ctx: Ctx, filter: { propertyId?: string } = 
         const d = legionellaDeadline({
           propertyId: p.id,
           assetId: a.id,
-          assetLabel: `${a.name} (${label})`,
+          assetLabel: a.name,
           lastInspectionOn: a.last_inspection_on,
           // Conservative defaults: showers and letting are assumed unless explicitly denied;
           // a missing "Großanlage" flag is reported by the completeness check instead.
@@ -63,7 +65,7 @@ export async function listDeadlines(ctx: Ctx, filter: { propertyId?: string } = 
         if (d) result.push(d);
       }
       if (a.kind === "smoke_detectors") {
-        const d = smokeDetectorDeadline({ propertyId: p.id, assetId: a.id, assetLabel: `${a.name} (${label})`, lastMaintenanceOn: a.last_inspection_on, today: ctx.today, state });
+        const d = smokeDetectorDeadline({ propertyId: p.id, assetId: a.id, assetLabel: a.name, lastMaintenanceOn: a.last_inspection_on, today: ctx.today, state });
         if (d) result.push(d);
       }
     }
@@ -73,7 +75,7 @@ export async function listDeadlines(ctx: Ctx, filter: { propertyId?: string } = 
           propertyId: p.id,
           meter: {
             id: m.id,
-            label: `${m.serial_number} (${label})`,
+            label: m.serial_number,
             kind: m.kind,
             remoteReadable: m.remote_readable,
             interoperable: m.interoperable,
@@ -85,7 +87,8 @@ export async function listDeadlines(ctx: Ctx, filter: { propertyId?: string } = 
       );
     }
   }
+  const labels = new Map(properties.map((p) => [p.id, `${p.code} ${p.name}`]));
   return result
-    .map((d) => evaluate(d, ctx.today))
+    .map((d) => ({ ...evaluate(d, ctx.today), propertyLabel: labels.get(d.propertyId) ?? "" }))
     .sort((a, b) => STATUS_ORDER[a.status] - STATUS_ORDER[b.status] || a.dueDate.localeCompare(b.dueDate) || a.id.localeCompare(b.id));
 }

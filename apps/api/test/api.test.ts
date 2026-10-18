@@ -191,6 +191,18 @@ describe("Regeln, Fristen, Audit", () => {
     expect(items[0].rule.sources.length).toBeGreaterThan(0);
   });
 
+  it("Startseite mit Kennzahlen, Fristen-Ampel und Vollständigkeit", async () => {
+    const res = await admin.get("/v1/dashboard");
+    expect(res.statusCode).toBe(200);
+    const d = res.json();
+    expect(d.counts.properties).toBeGreaterThanOrEqual(2);
+    expect(d.deadlines).not.toBeNull();
+    expect(d.properties[0]).toHaveProperty("completenessScore");
+    const asRenter = (await renter.get("/v1/dashboard")).json();
+    expect(asRenter.counts).toMatchObject({ properties: 1, units: 1, persons: null });
+    expect(asRenter.deadlines).toBeNull();
+  });
+
   it("Audit-Log: Admin ja, Objektbetreuer nein; Seiten über beforeId", async () => {
     const page = (await admin.get("/v1/audit?limit=2")).json();
     expect(page.items).toHaveLength(2);

@@ -8,7 +8,7 @@ import { randomUUID } from "node:crypto";
 import { registerAuth, type AppDeps } from "./plugins/context";
 import { registerErrorHandling } from "./plugins/errors";
 import { auditRoutes } from "./routes/audit";
-import { deadlineRoutes } from "./routes/deadlines";
+import { dashboardRoutes, deadlineRoutes } from "./routes/deadlines";
 import { devRoutes } from "./routes/dev";
 import { documentRoutes } from "./routes/documents";
 import { importRoutes } from "./routes/imports";
@@ -73,6 +73,7 @@ export async function buildApp(options: BuildAppOptions): Promise<FastifyInstanc
       await v1.register(settingsRoutes);
       await v1.register(ruleRoutes);
       await v1.register(deadlineRoutes);
+      await v1.register(dashboardRoutes);
       await v1.register(auditRoutes);
       await v1.register(importRoutes);
       await v1.register(documentRoutes);

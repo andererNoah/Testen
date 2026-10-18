@@ -1,9 +1,8 @@
 import { can, requirePermission } from "@hv/access";
-import type { EvaluatedDeadline } from "@hv/deadlines";
 import { listAssets, listMeters } from "./assets";
 import { getCompleteness, type Completeness } from "./completeness";
 import type { Ctx } from "./context";
-import { listDeadlines } from "./deadlines";
+import { listDeadlines, type PropertyDeadline } from "./deadlines";
 import { personDisplayName } from "./mappers";
 import { getProperty, listBuildings } from "./properties";
 import type { Asset, Building, Meter, Property, Unit } from "./schemas";
@@ -22,7 +21,7 @@ export interface PropertyOverview {
   units: Array<Unit & { occupants: UnitOccupant[] }>;
   assets: Asset[];
   meters: Meter[];
-  deadlines: EvaluatedDeadline[];
+  deadlines: PropertyDeadline[];
   completeness: Completeness;
   totals: { units: number; livingArea: string; usableArea: string; meaSum: string };
 }

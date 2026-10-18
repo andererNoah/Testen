@@ -12,6 +12,7 @@ export const deadline = z.object({
   basis: z.string(),
   subject: z.object({ type: z.string(), id: z.string(), label: z.string() }),
   propertyId: z.string(),
+  propertyLabel: z.string(),
   dueDate: z.string(),
   warnFrom: z.string(),
   criticalFrom: z.string(),

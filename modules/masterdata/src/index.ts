@@ -13,3 +13,4 @@ export * from "./deadlines";
 export * from "./completeness";
 export * from "./overview";
 export { personDisplayName } from "./mappers";
+export * from "./dashboard";
