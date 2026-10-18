@@ -1,0 +1,13 @@
+node_modules/
+dist/
+coverage/
+.turbo/
+*.log
+.env
+.env.*
+!.env.example
+# lokale Entwicklungsdatenbank und Ablage
+.data/
+# Playwright
+apps/web/test-results/
+apps/web/playwright-report/

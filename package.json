@@ -1,0 +1,37 @@
+{
+  "name": "hv-platform",
+  "private": true,
+  "description": "[PRODUKTNAME] – mandantenfähige Plattform für professionelle Hausverwaltungen in Deutschland",
+  "type": "module",
+  "packageManager": "pnpm@10.28.0",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev:api": "pnpm --filter @hv/api dev",
+    "dev:web": "pnpm --filter @hv/web dev",
+    "db:start": "node scripts/dev-db.mjs start",
+    "db:stop": "node scripts/dev-db.mjs stop",
+    "db:migrate": "pnpm --filter @hv/db migrate",
+    "db:seed": "pnpm --filter @hv/api seed",
+    "lint": "eslint .",
+    "typecheck": "pnpm -r --parallel typecheck",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "pnpm --filter @hv/web test:e2e",
+    "build": "pnpm -r build",
+    "licenses": "node scripts/check-licenses.mjs",
+    "traceability": "node scripts/check-traceability.mjs"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^22.20.5",
+    "eslint": "^10.13.0",
+    "fast-check": "^4.10.2",
+    "globals": "^17.13.0",
+    "tsx": "^4.23.15",
+    "typescript": "~6.0.3",
+    "typescript-eslint": "^8.71.2",
+    "vitest": "^5.0.5"
+  }
+}
