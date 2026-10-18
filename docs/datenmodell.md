@@ -13,7 +13,7 @@ tenants ─┬─ users ── role_assignments ──(Bereich: Mandant | Objekt
          │        └── technical_assets       │
          ├─ persons ── person_roles ─────────┘ (Eigentümer, Mieter, Beirat, … am Objekt/an der Einheit)
          ├─ custom_field_definitions
-         ├─ import_jobs
+         ├─ import_jobs, external_keys
          ├─ documents ── document_versions, document_links (Akte = Verknüpfung zu Entität)
          ├─ audit_log (nur anhängend)
          └─ access_log (Lesezugriffe auf personenbezogene Daten)
@@ -55,8 +55,9 @@ Verträge (Mietvertrag, Eigentumsverhältnis mit Kaufvertrag, Verwaltervertrag) 
 | Tabelle | Zweck |
 | --- | --- |
 | `custom_field_definitions` | Eigene Felder je Entität (V18): `entity_type`, `key`, `label`, `field_type` (`text`, `number`, `date`, `boolean`, `select`), `required`, `options` |
-| `import_jobs` | Import-Assistent: Dateien, Mapping, Validierungsbericht, Status (`analyzed`, `validated`, `committed`, `failed`) |
-| `documents`, `document_versions`, `document_links` | Dokumente mit Versionen (SHA-256, Größe, MIME), Ablage über Speicher-Adapter, Verknüpfung mit beliebig vielen Akten |
+| `import_jobs` | Import-Assistent: Dateien, Mapping, Validierungsbericht, Status (`analyzed`, `validated`, `committed`, `failed`). Rohdaten erscheinen nicht im Audit-Log |
+| `external_keys` | Schlüssel aus Altsystemen je Quelle (z. B. Personennummer) → Datensatz; macht wiederholte Importe idempotent (V20) |
+| `documents`, `document_versions`, `document_links` | Dokumente mit Versionen (SHA-256, Größe, MIME), Ablage über Speicher-Adapter, Verknüpfung mit beliebig vielen Akten. `documents.retention_until` aus Regel `ao.147.aufbewahrung`. `document_links.property_id` ist das Objekt der Akte; eine Personenakte neben einer Objektakte erbt deren Objekt, damit dieselben Personen sie sehen |
 | `audit_log` | Jede Änderung (Trigger). Nur anhängend. |
 | `access_log` | Lesezugriffe auf personenbezogene Daten (API) |
 | `legal_rules`, `legal_rule_versions` | Synchronisierter Regelkatalog (global) |

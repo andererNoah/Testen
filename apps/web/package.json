@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "tsc -p . && vite build",
     "preview": "vite preview",
-    "typecheck": "tsc -p .",
+    "typecheck": "tsc -p . && tsc -p e2e",
     "gen:api": "pnpm --filter @hv/api openapi && openapi-typescript src/api/openapi.json -o src/api/schema.d.ts",
     "test:e2e": "playwright test"
   },

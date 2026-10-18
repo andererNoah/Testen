@@ -16,12 +16,12 @@ Stand: 18.10.2026 · Phase 0 „Fundament“
 │ Validierung (zod), Problem+JSON-Fehler, OpenAPI                        │
 └───────────────────────────────┬────────────────────────────────────────┘
 ┌───────────────────────────────▼────────────────────────────────────────┐
-│ Fachmodule (modules/*): access · masterdata · audit · importer ·       │
-│ documents · (Phase 1+: rental, accounting, banking, billing, weg, …)   │
+│ Fachmodule (modules/*): access · masterdata · importer · documents     │
+│ (Phase 1+: rental, accounting, banking, billing, weg, cases, …)       │
 └───────────────────────────────┬────────────────────────────────────────┘
 ┌───────────────────────────────▼────────────────────────────────────────┐
-│ Querschnitt (packages/*): money · rules (Regel-Engine) · deadlines     │
-│ (Fristen-Engine) · db (Migrationen, Mandanten-Transaktionen)           │
+│ Querschnitt (packages/*): core · money · rules (Regel-Engine) ·        │
+│ deadlines (Fristen-Engine) · db (Migrationen, Mandanten-Transaktionen) │
 └───────────────────────────────┬────────────────────────────────────────┘
 ┌───────────────────────────────▼────────────────────────────────────────┐
 │ PostgreSQL 16: Row-Level-Security je Mandant und Objekt · Audit-Trigger│
@@ -33,15 +33,15 @@ Stand: 18.10.2026 · Phase 0 „Fundament“
 
 | Paket | Verantwortung | Darf importieren |
 | --- | --- | --- |
+| `packages/core` | Fachliche Fehlerklassen, Übersetzung von Datenbankfehlern | – |
 | `packages/money` | Integer-Cent, zentrale Rundung, Verteilung | – |
 | `packages/rules` | Versionierte Rechtsregeln mit Gültigkeit und Quelle | – |
 | `packages/deadlines` | Fristberechnung (§§ 187–193 BGB), Feiertage, Ampel | `rules` |
 | `packages/db` | Verbindung, Migrationen, Mandanten-Transaktion, Tabellentypen | – |
-| `modules/access` | Rollen, Rechte, Objektbezug, Benutzer | `db` |
-| `modules/audit` | Lesen des Audit-Logs | `db`, `access` |
+| `modules/access` | Rollen, Rechte, Objektbezug, Benutzer | `core`, `db` |
 | `modules/masterdata` | Objekte, Gebäude, Einheiten, Flächen/Anteile, Personen, Anlagen, Zähler, eigene Felder | `db`, `access`, `money`, `rules`, `deadlines` |
-| `modules/importer` | Import-Assistent (CSV/XLSX, Mapping, Validierung, Probeimport) | `db`, `access`, `masterdata` |
-| `modules/documents` | Dokumente, Versionen, Akten-Verknüpfung, Speicher-Adapter | `db`, `access` |
+| `modules/importer` | Import-Assistent (CSV/XLSX, Mapping, Validierung, Probeimport) | `db`, `access`, `masterdata`, `deadlines` |
+| `modules/documents` | Dokumente, Versionen, Akten-Verknüpfung, Aufbewahrung, Speicher-Adapter | `db`, `access`, `masterdata` (Kontext), `rules` |
 | `apps/api` | Komposition, HTTP, Auth | alle Module über deren `index.ts` |
 | `apps/web` | Verwaltungsoberfläche | nur die API (kein Import von Modulen) |
 
@@ -70,9 +70,16 @@ Fristen entstehen aus Fachdaten plus Regel: z. B. Trinkwasseranlage + Regel `tri
 
 Kein Hosting. Lokal laufen PostgreSQL (eigener Cluster unter `.data/pg`, gestartet mit `pnpm db:start`), API (`pnpm dev:api`) und Web (`pnpm dev:web`). CI läuft auf GitHub Actions mit Postgres-Service. Hosting in Deutschland und Zertifizierungsziel sind offene Entscheidungen (siehe `offene-fragen.md`).
 
+## Schnittstelle zur Oberfläche
+
+Die API beschreibt sich selbst als OpenAPI 3 (`/v1/openapi.json`, Oberfläche unter `/v1/docs`). Die Web-App erzeugt daraus ihre Typen (`pnpm --filter @hv/web gen:api`). Die CI prüft, dass Spezifikation und Typen zum Code passen, damit Oberfläche und API nicht auseinanderlaufen.
+
 ## Verweise
 
 - Datenmodell: `datenmodell.md`
 - Rechte: `rechtekonzept.md`
 - Entscheidungen: `adr/`
 - Anforderungen → Code → Test: `anforderungen.md`
+- Import: `import-vorlage.md`
+- Lizenzen: `lizenzen.md`
+- Abnahme Phase 0: `phase-0-abnahme.md`
