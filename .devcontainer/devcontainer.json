@@ -27,6 +27,7 @@
     "onAutoForward": "ignore"
   },
   "postCreateCommand": "bash .devcontainer/setup.sh",
+  "waitFor": "postCreateCommand",
   "postStartCommand": "bash .devcontainer/start.sh",
   "hostRequirements": {
     "cpus": 2,

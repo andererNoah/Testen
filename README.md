@@ -24,7 +24,7 @@ Mandantenfähige Plattform für professionelle Hausverwaltungen in Deutschland: 
 3. Danach startet die App automatisch und öffnet sich in einem neuen Tab (Port 5173, „Web-App“). Falls nicht: unten im Reiter **Ports** auf die Weltkugel bei „Web-App“ klicken.
 4. Einen Demo-Benutzer wählen und anmelden.
 
-Läuft die App nach einem Neustart nicht, im Terminal `pnpm dev` ausführen. Das Protokoll steht in `.data/dev.log`. Ein Codespace stoppt nach 30 Minuten Inaktivität; Daten bleiben bis zum Löschen des Codespace erhalten.
+Zeigt der Tab „HTTP ERROR 502“, läuft die App (noch) nicht. Dann im Terminal `bash .devcontainer/start.sh` ausführen: Das Skript startet Datenbank, API und Oberfläche und zeigt bei einem Fehler die letzten Zeilen aus `.data/dev.log`. Danach den Tab neu laden. Ein Codespace stoppt nach 30 Minuten Inaktivität; Daten bleiben bis zum Löschen des Codespace erhalten.
 
 ## Lokal starten
 
