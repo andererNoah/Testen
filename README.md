@@ -15,7 +15,18 @@ Mandantenfähige Plattform für professionelle Hausverwaltungen in Deutschland: 
 - **Web-Oberfläche:** Startseite, Objekt-360°, Einheiten mit Historie, Personen, Fristen, Regeln, Audit-Log, Import, Befehlspalette (<kbd>Strg</kbd>+<kbd>K</kbd>), heller und dunkler Modus, WCAG 2.2 AA geprüft mit axe
 - **API:** REST unter `/v1`, OpenAPI unter `/v1/openapi.json` und `/v1/docs`
 
-## Schnellstart
+## Im Browser starten (GitHub Codespaces)
+
+[![In GitHub Codespaces öffnen](https://github.com/codespaces/badge.svg)](https://codespaces.new/andererNoah/Testen?quickstart=1)
+
+1. Auf den Knopf oben klicken (oder auf GitHub: **Code → Codespaces → Create codespace**).
+2. Beim ersten Start richtet der Codespace alles selbst ein: Abhängigkeiten, Datenbank, Demo-Mandant. Das dauert einige Minuten.
+3. Danach startet die App automatisch und öffnet sich in einem neuen Tab (Port 5173, „Web-App“). Falls nicht: unten im Reiter **Ports** auf die Weltkugel bei „Web-App“ klicken.
+4. Einen Demo-Benutzer wählen und anmelden.
+
+Läuft die App nach einem Neustart nicht, im Terminal `pnpm dev` ausführen. Das Protokoll steht in `.data/dev.log`. Ein Codespace stoppt nach 30 Minuten Inaktivität; Daten bleiben bis zum Löschen des Codespace erhalten.
+
+## Lokal starten
 
 Voraussetzungen: Node.js 22, pnpm 10, PostgreSQL 16 (Binärdateien lokal, z. B. `apt install postgresql-16`).
 
@@ -24,8 +35,7 @@ pnpm install
 cp .env.example .env
 pnpm db:start        # lokaler Cluster auf 127.0.0.1:54320, Rollen, Datenbank, Migrationen
 pnpm db:seed         # Demo-Mandant „Hausverwaltung Muster GmbH“ mit acht Benutzern
-pnpm dev:api         # API auf http://127.0.0.1:3000 (Doku: /v1/docs)
-pnpm dev:web         # Oberfläche auf http://127.0.0.1:5173
+pnpm dev             # API (http://127.0.0.1:3000, Doku /v1/docs) und Oberfläche (http://127.0.0.1:5173)
 ```
 
 Danach im Browser einen Demo-Benutzer wählen, zum Beispiel Anna Admin (alles), Olaf Objektbetreuer (WEG und SEV) oder Paul Richter (Mieter, sieht nur seine Wohnung).

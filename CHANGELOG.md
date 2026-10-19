@@ -2,6 +2,13 @@
 
 Rechtsänderungen erscheinen zusätzlich im Produkt unter „Regeln & Recht → Rechtsänderungen“ (V19).
 
+## Unveröffentlicht
+
+### Neu
+
+- GitHub Codespaces: Entwicklungsumgebung mit Node.js 22, pnpm und PostgreSQL 16; richtet Datenbank und Demo-Mandant beim ersten Start ein und startet die App automatisch (`.devcontainer/`)
+- `pnpm dev` startet API und Oberfläche zusammen
+
 ## 0.1.0 – Phase 0 „Fundament“ (18.10.2026)
 
 ### Neu

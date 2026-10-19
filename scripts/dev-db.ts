@@ -16,7 +16,7 @@ const cluster = await startLocalCluster({ dataDir, port: PORT });
 
 if (command === "stop") {
   const { execFileSync } = await import("node:child_process");
-  const bin = execFileSync("pg_config", ["--bindir"]).toString().trim();
+  const bin = process.env.PG_BIN ?? execFileSync("pg_config", ["--bindir"]).toString().trim();
   const args = ["-D", dataDir, "-m", "fast", "-w", "stop"];
   if (process.getuid?.() === 0) execFileSync("runuser", ["-u", "postgres", "--", path.join(bin, "pg_ctl"), ...args]);
   else execFileSync(path.join(bin, "pg_ctl"), args);
